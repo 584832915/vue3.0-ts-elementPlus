@@ -1,0 +1,56 @@
+body {
+    font-family: PingFangSC-Medium, PingFang SC, Microsoft YaHei, Helvetica Neue, Helvetica, Hiragino Sans GB, SimSun, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-user-select: text;
+    /*火狐*/
+    -webkit-user-select: text;
+    /*webkit浏览器*/
+    -ms-user-select: text;
+    /*IE10*/
+    -khtml-user-select: text;
+    /*早期浏览器*/
+    user-select: text;
+}
+
+body,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #172c45;
+    text-decoration: none;
+}
+
+em {
+    font-style: normal;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    border: 0;
+    display: block;
+}
