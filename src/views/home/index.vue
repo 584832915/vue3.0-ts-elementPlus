@@ -1,23 +1,24 @@
 <template>
   <div>
-    <barEcharts :title="title" @changeTitle="changeTitle"></barEcharts>
+    <el-button @click="changeTitles">父改值</el-button>
+    <barEcharts :title="title"></barEcharts>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import barEcharts from './components/barEcharts.vue';
 
 export default defineComponent({
   components: { barEcharts },
   setup() {
-    let title = '我是父级title';
-    const changeTitle = (val: string) => {
-      title = val;
+    const title = ref('我是父级title');
+    const changeTitles = () => {
+      title.value = '更改后的值';
     };
     return {
       title,
-      changeTitle,
+      changeTitles,
     };
   },
 });

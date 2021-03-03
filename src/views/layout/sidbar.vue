@@ -8,9 +8,9 @@
             <i class="el-icon-s-data"></i>
             <template #title>首页</template>
           </el-menu-item>
-          <el-menu-item index="2">
+          <el-menu-item index="2" :route="{name:'表格'}">
             <i class="el-icon-menu"></i>
-            <template #title>导航二</template>
+            <template #title>表格</template>
           </el-menu-item>
           <el-menu-item index="3">
             <i class="el-icon-document"></i>

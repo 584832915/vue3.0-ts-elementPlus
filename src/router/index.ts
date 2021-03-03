@@ -22,6 +22,15 @@ const routes: Array<RouteRecordRaw> = [
           parent: '首页'
         }
       },
+      {
+        path: '/vuextable',
+        name: '表格',
+        component: () => import('../views/table/index.vue'),
+        meta: {
+          breadcrumb: [],
+          parent: '表格'
+        }
+      },
     ]
   }
 ]

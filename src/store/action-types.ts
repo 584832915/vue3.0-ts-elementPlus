@@ -1,0 +1,2 @@
+export const SET_CURRENTTYPE = 'SET_CURRENTTYPE'
+export const SET_TABLEDATA = "SET_TABLEDATA"

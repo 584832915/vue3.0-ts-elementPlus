@@ -1,13 +1,12 @@
 <template>
   <div class="title">
     {{title}}
-    <el-button @click="changeTitle"> 更改title</el-button>
   </div>
   <div id="echarts"></div>
 </template>
 
 <script lang="ts">
-import { defineComponent, nextTick, onMounted } from 'vue';
+import { defineComponent, nextTick, onMounted, watch } from 'vue';
 import { onBeforeRouteLeave } from 'vue-router';
 interface YaxisType {
   min: number;
@@ -175,15 +174,14 @@ export default defineComponent({
     onBeforeRouteLeave(() => {
       clearInterval(timer);
     });
+    watch(
+      () => prop.title,
+      (title) => {
+        console.log(title, 888888);
+      }
+    );
 
-    const changeTitle = () => {
-      emit('changeTitle', '更改后的title');
-    };
-
-    return {
-      changeTitle,
-      //   myChart,
-    };
+    return {};
   },
 });
 </script>
