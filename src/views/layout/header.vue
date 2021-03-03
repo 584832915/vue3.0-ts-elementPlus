@@ -9,7 +9,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-export default defineComponent({});
+export default defineComponent({
+  setup() {
+    console.log(11111);
+  },
+});
 </script>
 
 <style scoped lang="scss">
