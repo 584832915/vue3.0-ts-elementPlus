@@ -161,7 +161,7 @@ export default defineComponent({
         myChart.setOption(option);
         timer = setInterval(function () {
           option.xAxis.data.shift();
-          (option.xAxis.data as any[]).push(moment().format('HH:mm:ss'));
+          (option.xAxis.data as string[]).push(moment().format('HH:mm:ss'));
           option.series[0].data.shift();
           option.series[1].data.shift();
           option.series[0].data.push(Math.round(Math.random() * 1000));
