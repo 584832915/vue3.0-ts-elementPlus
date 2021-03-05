@@ -29,7 +29,6 @@ export default defineComponent({
     const router = useRouter();
     const ruleFormsss = ref();
     const login = ref();
-    console.log(ruleFormsss.value);
     const ruleForm: RuleType = reactive({ loginAccount: '', password: '' });
     const rules = {
       loginAccount: [
@@ -39,7 +38,6 @@ export default defineComponent({
     };
     // 确认提交
     const submit = () => {
-      console.log(login);
       ruleFormsss.value.validate((valid: boolean) => {
         if (valid) {
           ruleFormsss.value.$message.success('登录成功了');
