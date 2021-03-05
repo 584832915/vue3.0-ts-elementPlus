@@ -18,7 +18,7 @@ export default defineComponent({
       type: String,
     },
   },
-  setup(prop, { emit }) {
+  setup(prop) {
     let myChart: any;
     const option = {
       title: {
@@ -160,6 +160,7 @@ export default defineComponent({
         (option.xAxis.data as string[]) = timeArr.reverse();
         myChart.setOption(option);
         timer = setInterval(function () {
+          console.log('timer');
           option.xAxis.data.shift();
           (option.xAxis.data as string[]).push(moment().format('HH:mm:ss'));
           option.series[0].data.shift();

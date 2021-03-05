@@ -18,7 +18,6 @@ import { useRoute } from 'vue-router';
 import sideBar from './sidbar.vue';
 import myHeader from './header.vue';
 import myContent from './main.vue';
-
 export default defineComponent({
   components: { sideBar, myHeader, myContent },
   setup() {

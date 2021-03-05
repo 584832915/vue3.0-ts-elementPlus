@@ -31,6 +31,15 @@ const routes: Array<RouteRecordRaw> = [
           parent: '表格'
         }
       },
+      {
+        path: '/Suspense',
+        name: 'Suspense',
+        component: () => import('../views/Suspense/index.vue'),
+        meta: {
+          breadcrumb: [],
+          parent: 'Suspense'
+        }
+      },
     ]
   }
 ]

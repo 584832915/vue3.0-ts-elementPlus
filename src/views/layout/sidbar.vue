@@ -12,9 +12,9 @@
             <i class="el-icon-menu"></i>
             <template #title>表格</template>
           </el-menu-item>
-          <el-menu-item index="3">
+          <el-menu-item index="3" :route="{name:'Suspense'}">
             <i class="el-icon-document"></i>
-            <template #title>导航三</template>
+            <template #title>Suspense</template>
           </el-menu-item>
           <el-menu-item index="4">
             <i class="el-icon-setting"></i>
