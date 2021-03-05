@@ -19,8 +19,7 @@ export default defineComponent({
     },
   },
   setup(prop, { emit }) {
-    console.log(prop);
-    let myChart;
+    let myChart: any;
     const option = {
       title: {
         text: '动态数据',
@@ -160,15 +159,15 @@ export default defineComponent({
         myChart = echarts.init(document.getElementById('echarts'), 'dark');
         (option.xAxis.data as string[]) = timeArr.reverse();
         myChart.setOption(option);
-        // timer = setInterval(function () {
-        //   option.xAxis.data.shift()
-        //   option.xAxis.data.push(moment().format("HH:mm:ss"))
-        //   option.series[0].data.shift()
-        //   option.series[1].data.shift()
-        //   option.series[0].data.push(Math.round(Math.random() * 1000))
-        //   option.series[1].data.push(Math.round(Math.random() * 1000))
-        //   myChart.setOption(option);
-        // }, 5000);
+        timer = setInterval(function () {
+          option.xAxis.data.shift();
+          (option.xAxis.data as any[]).push(moment().format('HH:mm:ss'));
+          option.series[0].data.shift();
+          option.series[1].data.shift();
+          option.series[0].data.push(Math.round(Math.random() * 1000));
+          option.series[1].data.push(Math.round(Math.random() * 1000));
+          myChart.setOption(option);
+        }, 5000);
       });
     });
     onBeforeRouteLeave(() => {

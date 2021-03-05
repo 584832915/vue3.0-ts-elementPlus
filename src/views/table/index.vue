@@ -21,6 +21,7 @@ import { ListType, TableType } from '@/typings/table';
 export default defineComponent({
   setup() {
     const store = useStore<IGlobalState>();
+    console.log(store);
     const type: ComputedRef<TableType> = computed(
       () => store.state.table.currentType
     );
