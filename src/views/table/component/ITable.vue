@@ -32,3 +32,8 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="scss">
+.el-table th {
+  background-color: #ebeef5;
+}
+</style>

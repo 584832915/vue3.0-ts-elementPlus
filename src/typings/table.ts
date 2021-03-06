@@ -26,3 +26,11 @@ export interface configType {
     prop: string,
     filterFun: string
 }
+
+export interface serachConfigType {
+    type: string,
+    label: string,
+    modelName: string,
+    placeholder?: string,
+    options?: object[]
+}
