@@ -1,12 +1,12 @@
 <template>
   <el-container id="nav">
-    <sideBar />
+    <MysideBar />
     <el-container style="width: 100%" class="sss">
       <el-header>
-        <myHeader></myHeader>
+        <MyHeader></MyHeader>
       </el-header>
       <el-main>
-        <myContent></myContent>
+        <MyContent></MyContent>
       </el-main>
     </el-container>
   </el-container>
@@ -15,11 +15,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
-import sideBar from './sidbar.vue';
-import myHeader from './header.vue';
-import myContent from './main.vue';
+import MysideBar from './ISidbar.vue';
+import MyHeader from './IHeader.vue';
+import MyContent from './IMain.vue';
 export default defineComponent({
-  components: { sideBar, myHeader, myContent },
+  components: { MysideBar, MyHeader, MyContent },
   setup() {
     const route = useRoute();
     const id = route.query.id;

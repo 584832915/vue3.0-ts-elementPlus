@@ -1,16 +1,16 @@
 <template>
   <div>
     <el-button @click="changeTitles">父改值</el-button>
-    <barEcharts :title="title"></barEcharts>
+    <BarEcharts :title="title"></BarEcharts>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import barEcharts from './components/barEcharts.vue';
+import BarEcharts from './components/BarEcharts.vue';
 
 export default defineComponent({
-  components: { barEcharts },
+  components: { BarEcharts },
   setup() {
     const title = ref('我是父级title');
     const changeTitles = () => {

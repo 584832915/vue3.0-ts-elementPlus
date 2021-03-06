@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <el-select v-model="value" placeholder="请选择" @change="handleCommand">
+    <el-select v-model="value" placeholder="切换表格内容" @change="handleCommand">
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
       </el-option>
     </el-select>
@@ -14,7 +14,7 @@
 <script lang="ts">
 import { useStore } from 'vuex';
 import { defineComponent, ref } from 'vue';
-import { ItableState, OptionsType, TableType } from './../../typings/table';
+import { ItableState, OptionsType, TableType } from '../../typings/table';
 import * as ActionType from '@/store/action-types';
 export default defineComponent({
   setup() {
@@ -29,7 +29,7 @@ export default defineComponent({
       store.commit(ActionType.SET_CURRENTTYPE, val);
       if (val == 1) {
         store.commit(ActionType.SET_TABLEDATA, [
-          { name: '1', age: 10, address: '111111' },
+          { name: '', age: 10, address: '111111' },
         ]);
         return;
       }

@@ -20,3 +20,9 @@ export interface ItableState {
     currentType: TableType,
     tableData: ListType[]
 }
+
+export interface configType {
+    label: string,
+    prop: string,
+    filterFun: string
+}
