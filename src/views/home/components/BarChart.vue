@@ -126,7 +126,7 @@ export default defineComponent({
           show: true,
           height: 10,
           start: 0,
-          end: 100
+          end: 30
         }
       ],
       series: [
