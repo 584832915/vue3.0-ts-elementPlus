@@ -79,7 +79,7 @@ export default defineComponent({
     onMounted(async () => {
       const { code, data } = await getItemList<ResType>();
       if (code == 200) {
-        tableData.value = [...data.userTableData];
+        tableData.value = data.userTableData;
       }
     });
     return {
