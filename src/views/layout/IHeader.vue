@@ -12,45 +12,28 @@
 </template>
 
 <script lang="ts">
-import { useStore } from 'vuex';
-import { defineComponent, ref } from 'vue';
-import { ItableState, OptionsType, TableType } from '../../typings/table';
-import * as ActionType from '@/store/action-types';
+import { useStore } from "vuex";
+import { defineComponent, ref } from "vue";
+import { ItableState, OptionsType, TableType } from "../../typings/table";
+import * as ActionType from "@/store/action-types";
 export default defineComponent({
   setup() {
-    const value = ref('');
+    const value = ref("");
     const options: OptionsType[] = [
-      { label: 'type1', value: 1 },
-      { label: 'type2', value: 2 },
-      { label: 'type3', value: 3 },
+      { label: "type1", value: 1 },
+      { label: "type2", value: 2 },
+      { label: "type3", value: 3 }
     ];
     const store = useStore<ItableState>();
     const handleCommand = (val: TableType) => {
       store.commit(ActionType.SET_CURRENTTYPE, val);
-      if (val == 1) {
-        store.commit(ActionType.SET_TABLEDATA, [
-          { name: '', age: 10, address: '111111' },
-        ]);
-        return;
-      }
-      if (val == 2) {
-        store.commit(ActionType.SET_TABLEDATA, [
-          { name: '2', age: 20, address: '22222' },
-        ]);
-        return;
-      }
-      if (val == 3) {
-        store.commit(ActionType.SET_TABLEDATA, [
-          { name: '3', age: 30, address: '33333' },
-        ]);
-      }
     };
     return {
       value,
       options,
-      handleCommand,
+      handleCommand
     };
-  },
+  }
 });
 </script>
 

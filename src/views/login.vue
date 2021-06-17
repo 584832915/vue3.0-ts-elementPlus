@@ -17,32 +17,32 @@
 </template>
 
 <script lang="ts">
-import { useRouter } from 'vue-router';
-import { defineComponent, reactive, ref } from 'vue';
+import { useRouter } from "vue-router";
+import { defineComponent, reactive, ref } from "vue";
 interface RuleType {
   loginAccount: string;
   password: string;
 }
 export default defineComponent({
-  name: 'Home',
+  name: "Home",
   setup() {
     const router = useRouter();
     const ruleFormsss = ref();
     const login = ref();
-    const ruleForm: RuleType = reactive({ loginAccount: '', password: '' });
+    const ruleForm: RuleType = reactive({ loginAccount: "", password: "" });
     const rules = {
       loginAccount: [
-        { required: true, message: '请输入账号', trigger: 'blur' },
+        { required: true, message: "请输入账号", trigger: "blur" }
       ],
-      password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+      password: [{ required: true, message: "请输入密码", trigger: "blur" }]
     };
     // 确认提交
     const submit = () => {
       ruleFormsss.value.validate((valid: boolean) => {
         if (valid) {
-          ruleFormsss.value.$message.success('登录成功了');
-          sessionStorage.setItem('token', '111111111111');
-          router.push({ path: '/nav', query: { id: 1 } });
+          ruleFormsss.value.$message.success("登录成功了");
+          sessionStorage.setItem("token", "111111111111");
+          router.push({ path: "/nav", query: { id: 1 } });
         }
       });
     };
@@ -56,9 +56,9 @@ export default defineComponent({
       ruleFormsss,
       submit,
       resetForm,
-      login,
+      login
     };
-  },
+  }
 });
 </script>
 <style scoped lang="scss">

@@ -3,21 +3,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   async setup() {
-    const title = '我出来了~~~~';
-
+    const title = "我出来了~~~~";
     await new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve('');
+        resolve("");
       }, 1000);
     });
     return {
-      title,
+      title
     };
-  },
+  }
 });
 </script>
 

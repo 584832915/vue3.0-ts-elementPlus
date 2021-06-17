@@ -12,13 +12,14 @@ export interface OptionsType {
 
 export interface ListType {
     name: string,
-    age: number,
-    address: string
+    date: string,
+    province: string,
+    city:string,
+    address:string
 }
 
 export interface ItableState {
     currentType: TableType,
-    tableData: ListType[]
 }
 
 export interface configType {

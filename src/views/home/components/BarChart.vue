@@ -11,15 +11,15 @@ interface DataType {
 export default defineComponent({
   setup() {
     const data = (function () {
-      const data: DataType = {
+      const dataL: DataType = {
         xData: [],
         yData: []
       };
       for (let i = 1; i < 13; i++) {
-        data.xData.push(i + "月份");
-        data.yData.push(Math.round(Math.random() * 100));
+        dataL.xData.push(i + "月份");
+        dataL.yData.push(Math.round(Math.random() * 100));
       }
-      return data;
+      return dataL;
     })();
     const yData2 = new Array(12).fill(0);
     data.yData.forEach((val, index) => {
@@ -69,7 +69,7 @@ export default defineComponent({
         textStyle: {
           color: "#90979c"
         },
-        data: ["女", "男", "平均"]
+        data: ["女", "男"]
       },
 
       calculable: true,

@@ -15,12 +15,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import SuspenseDemo from './components/Suspense.vue';
+import { defineComponent } from "vue";
+import SuspenseDemo from "./components/Suspense.vue";
 
 export default defineComponent({
-  components: { SuspenseDemo },
-  setup() {},
+  components: { SuspenseDemo }
 });
 </script>
 
