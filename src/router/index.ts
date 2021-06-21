@@ -8,7 +8,11 @@ import Login from '../views/login.vue'
   {
     path: '/',
     name: '登录',
-    component: Login
+    component: Login,
+    meta: {
+      breadcrumb: [],
+      parent: '登录'
+    }
   },
   {
     path: '/nav',
@@ -23,22 +27,21 @@ const router = createRouter({
 })
 const canUserAccess = (to: RouteLocationNormalized, from: RouteLocationNormalized,next:NavigationGuardNext) => {
   if (to.path == '/') {
-    return true;
+    next();
   } else {
     if (sessionStorage.getItem('token')) {
       if(!store.state.permission.sidbarList.length){
         handleRoutes()
         next({ ...to, replace: true })
       }else{
-        next()
+        !to.meta.parent? next({ path: "/" }): next()
       }
     } else {
-      return !to.meta.parent ? true : router.push({ path: '/' })
+       next({ path: "/" })
     }
   }
 }
 router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormalized,next:NavigationGuardNext) => {
- 
   return await canUserAccess(to, from ,next)
 })
 

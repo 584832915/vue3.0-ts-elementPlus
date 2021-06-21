@@ -49,7 +49,6 @@ export default defineComponent({
           sessionStorage.setItem("ruleList", JSON.stringify(sidbarList));
           handleRoutes();
           router.push({ name: sidbarList[0].name });
-          // router.push({ path: "/nav", query: { id: 1 } });
         }
       });
     };
