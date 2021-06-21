@@ -3,8 +3,8 @@
     <div style="margin-bottom:20px">在 3.x 中，过滤器已删除，不再支持。相反地，我们建议用方法调用或计算属性替换它们。</div>
     <ISearchForm :serachConfig='serachConfig'></ISearchForm>
     <ITable :tableData="tableData" :configs="configs"></ITable>
-  </div>
 
+  </div>
 </template>
 
 <script lang="ts">
@@ -76,17 +76,22 @@ export default defineComponent({
       () => store.state.table.currentType
     );
     const tableData = ref<ListType[]>([]);
-    onMounted(async () => {
+    const pageChange = async (val?: number) => {
       const { code, data } = await getItemList<ResType>();
       if (code == 200) {
         tableData.value = data.userTableData;
+        console.log(tableData);
       }
+    };
+    onMounted(() => {
+      pageChange();
     });
     return {
       type,
       tableData,
       configs,
-      serachConfig
+      serachConfig,
+      pageChange
     };
   }
 });

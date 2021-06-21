@@ -22,6 +22,8 @@ export interface ItableState {
     currentType: TableType,
 }
 
+
+
 export interface configType {
     label: string,
     prop: string,

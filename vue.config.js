@@ -45,7 +45,7 @@ module.exports = {
   configureWebpack: {
     // 打包忽略文件
     externals: {
-      'echarts': 'echarts',
+      echarts: 'echarts',
     //   axios: 'axios',
       moment: 'moment',
     //   'qiniu-js': 'qiniu'

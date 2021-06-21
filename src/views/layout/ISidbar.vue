@@ -3,23 +3,14 @@
     <el-scrollbar class="default-scrollbar" wrap-class="default-scrollbar__wrap" view-class="default-scrollbar__view">
       <div id="el-menu">
         <div class="logo">demo</div>
-        <el-menu default-active="1-4-1" class="el-menu-vertical-demo" router>
-          <el-menu-item index="1" :route="{name:'首页'}">
-            <i class="el-icon-s-data"></i>
-            <template #title>首页</template>
-          </el-menu-item>
-          <el-menu-item index="2" :route="{name:'表格'}">
-            <i class="el-icon-menu"></i>
-            <template #title>表格</template>
-          </el-menu-item>
-          <el-menu-item index="3" :route="{name:'Suspense'}">
-            <i class="el-icon-document"></i>
-            <template #title>Suspense</template>
-          </el-menu-item>
-          <el-menu-item index="4">
-            <i class="el-icon-setting"></i>
-            <template #title>导航四</template>
-          </el-menu-item>
+        <el-menu class="el-menu-vertical-demo" router>
+          <template v-for="(item,index) in sidbarList" :key="index">
+            {{currentRoute}}
+            <el-menu-item :index="index+''" :route="{name:item.name}" :class="currentRoute == item.name?'is-active':''">
+              <i class="el-icon-s-data"></i>
+              <template #title>{{item.name}}</template>
+            </el-menu-item>
+          </template>
         </el-menu>
       </div>
     </el-scrollbar>
@@ -27,10 +18,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-
+import { computed, defineComponent, onMounted, ref, watch } from "vue";
+import { useRoute } from "vue-router";
 export default defineComponent({
-  setup() {},
+  setup() {
+    const route = useRoute();
+    const currentRoute = ref("");
+    onMounted(() => {
+      currentRoute.value = route.name as string;
+    });
+    const sidbarList = computed(() =>
+      JSON.parse(sessionStorage.getItem("ruleList") as string)
+    );
+    watch(
+      () => route.name,
+      (val) => {
+        currentRoute.value = val as string;
+      }
+    );
+    return {
+      sidbarList,
+      currentRoute
+    };
+  }
 });
 </script>
 

@@ -19,6 +19,8 @@
 <script lang="ts">
 import { useRouter } from "vue-router";
 import { defineComponent, reactive, ref } from "vue";
+import { handleRoutes } from "@/utils/handlePermission";
+import { useStore } from "vuex";
 interface RuleType {
   loginAccount: string;
   password: string;
@@ -27,6 +29,7 @@ export default defineComponent({
   name: "Home",
   setup() {
     const router = useRouter();
+    const store = useStore();
     const ruleFormsss = ref();
     const login = ref();
     const ruleForm: RuleType = reactive({ loginAccount: "", password: "" });
@@ -36,13 +39,17 @@ export default defineComponent({
       ],
       password: [{ required: true, message: "请输入密码", trigger: "blur" }]
     };
+    const sidbarList = [{ name: "首页" }, { name: "表格" }];
     // 确认提交
     const submit = () => {
       ruleFormsss.value.validate((valid: boolean) => {
         if (valid) {
           ruleFormsss.value.$message.success("登录成功了");
           sessionStorage.setItem("token", "111111111111");
-          router.push({ path: "/nav", query: { id: 1 } });
+          sessionStorage.setItem("ruleList", JSON.stringify(sidbarList));
+          handleRoutes();
+          router.push({ name: sidbarList[0].name });
+          // router.push({ path: "/nav", query: { id: 1 } });
         }
       });
     };
