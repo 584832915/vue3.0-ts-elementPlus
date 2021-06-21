@@ -23,6 +23,5 @@ export const handleRoutes=()=>{
     store.commit(SET_SIDBARLIST,routeList);
     routeList.forEach((val:any) => {
         router.addRoute("nav", getRouteDetail(asyncRoute, val.name));
-        console.log(val)
     });
 }
