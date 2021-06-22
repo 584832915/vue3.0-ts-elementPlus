@@ -20,7 +20,6 @@
 import { useRouter } from "vue-router";
 import { defineComponent, reactive, ref } from "vue";
 import { handleRoutes } from "@/utils/handlePermission";
-import { useStore } from "vuex";
 interface RuleType {
   loginAccount: string;
   password: string;
@@ -29,7 +28,6 @@ export default defineComponent({
   name: "Home",
   setup() {
     const router = useRouter();
-    const store = useStore();
     const ruleFormsss = ref();
     const login = ref();
     const ruleForm: RuleType = reactive({ loginAccount: "", password: "" });
