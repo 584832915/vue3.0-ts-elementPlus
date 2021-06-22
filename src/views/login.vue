@@ -39,7 +39,11 @@ export default defineComponent({
       ],
       password: [{ required: true, message: "请输入密码", trigger: "blur" }]
     };
-    const sidbarList = [{ name: "首页" }, { name: "表格" }]; //模拟权限
+    const sidbarList = [
+      { name: "首页" },
+      { name: "表格" },
+      { name: "Suspense" }
+    ]; //模拟权限
     // 确认提交
     const submit = () => {
       ruleFormsss.value.validate((valid: boolean) => {

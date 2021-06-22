@@ -1,9 +1,12 @@
 <template>
   <div class="header">
-    <el-select v-model="value" placeholder="切换表格内容" @change="handleCommand">
+    <div>
+
+    </div>
+    <!-- <el-select v-model="value" placeholder="切换表格内容" @change="handleCommand">
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
       </el-option>
-    </el-select>
+    </el-select> -->
     <div>
       <i class="el-icon-user-solid"></i>
       <span>我是姓名</span>

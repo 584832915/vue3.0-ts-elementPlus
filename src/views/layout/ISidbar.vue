@@ -7,7 +7,7 @@
           <template v-for="(item,index) in sidbarList" :key="index">
             {{currentRoute}}
             <el-menu-item :index="index+''" :route="{name:item.name}" :class="currentRoute == item.name?'is-active':''">
-              <i class="el-icon-s-data"></i>
+              <i :class="filterIcon(item.name)"></i>
               <template #title>{{item.name}}</template>
             </el-menu-item>
           </template>
@@ -20,10 +20,22 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted, ref, watch } from "vue";
 import { useRoute } from "vue-router";
+interface IconObjType {
+  [key: string]: string;
+}
 export default defineComponent({
   setup() {
     const route = useRoute();
     const currentRoute = ref("");
+
+    const filterIcon = (val: string) => {
+      const filterIconObj: IconObjType = {
+        首页: "el-icon-s-marketing",
+        表格: "el-icon-s-order",
+        Suspense: "el-icon-s-claim"
+      };
+      return filterIconObj[val];
+    };
     onMounted(() => {
       currentRoute.value = route.name as string;
     });
@@ -38,7 +50,8 @@ export default defineComponent({
     );
     return {
       sidbarList,
-      currentRoute
+      currentRoute,
+      filterIcon
     };
   }
 });
