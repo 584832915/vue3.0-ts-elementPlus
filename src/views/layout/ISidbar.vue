@@ -27,7 +27,6 @@ export default defineComponent({
   setup() {
     const route = useRoute();
     const currentRoute = ref("");
-
     const filterIcon = (val: string) => {
       const filterIconObj: IconObjType = {
         首页: "el-icon-s-marketing",

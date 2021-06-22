@@ -5,17 +5,16 @@ import store from '@/store'
 import router from '@/router';
 
 
-let list:any = {}
-export const getRouteDetail = (routes: Array<RouteRecordRaw>,name:string)=>{
+let item:any = {}
+const getRouteDetail = (routes: Array<RouteRecordRaw>,name:string)=>{
     routes.forEach((val)=>{
         if(val.name == name){
-            list= val
-        } 
-        if(val.children  && val.children.length){
+            item= val
+        } else if(val.children  && val.children.length){
             getRouteDetail(val.children,name)
         }
     })
-    return list
+    return item
 }
 
 export const handleRoutes=()=>{
